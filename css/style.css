@@ -13,17 +13,8 @@ html {
   margin: 0;
 }
 
-.title {
-  font-size: 4.5em;
-  font-weight: bold;
-  margin-bottom: 40px;
-}
-
-.head-bar {
-  background: #d3595d;
-}
-.head-bar img {
-  max-width: 10%;
+.top-bar {
+  background-color: #db4b4f;
 }
 
 .section {
@@ -39,27 +30,9 @@ html {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0, 2px 0 rgba(0, 0, 0, 0.04);
 }
 
-.banner {
-  background: url("/img/bg.jpg") no-repeat;
-  background-position: top center;
-  background-size: cover;
-  color: white;
-}
-.banner .apply {
-  background: #d3595d;
-  border: #d3595d 1px solid;
-  color: #ffffff;
-  font-size: 1.375rem;
-}
-.banner .apply:hover {
-  background: transparent;
-  color: #d3595d;
-}
-.banner img {
-  width: 2em;
-}
 .banner h1 {
-  font-size: 6rem;
+  margin-top: 0.5em;
+  font-size: 3rem;
   line-height: 1em;
   margin-bottom: 0.3em;
 }
