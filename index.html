@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <meta name="google" value="notranslate">
+    <title>Feedback | hackEDU</title>
+    <meta name="og:image"
+          content="/img/bg_nogradient.jpg" />
+    <link rel="stylesheet prefetch" href="https://cdn.jsdelivr.net/foundation/5.5.0/css/foundation.css">
+    <link rel="stylesheet prefetch" href="css/style.css">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet prefetch" href="https://cdn.jsdelivr.net/foundation/5.5.0/css/foundation.css">
+    <link rel="stylesheet prefetch" href="css/style.css">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  </head>
+  <body>
+    <!--div class="section banner banner-short text-center">
+      <img src="/img/hackedu_logo.png">
+      <h3 class="white hackedu-logo"><a href="/">hackEDU's</a></h3>
+      <h1 class="white title">Apply to Hack Camp</h1>
+    </div>
+    <div class="row application-description">
+      <p>
+        We invite you, brave learner, to participate in our kickoff Hack Camp!
+      </p>
+      <p>
+        Applications for the next session of Hack Camp (June 15th - June 26th)
+        close on May 30th at 12PM PDT.
+      </p>
+    </div-->
+    <div class="row">
+      <form data-abide
+            action="https://docs.google.com/forms/d/1ROcWMH1DWC7tdc1NbzuDn85iFWbLDFI7OAEzLgWxy0Q/formResponse"
+            method="POST">
+        <fieldset>
+          <legend>We <3 feedback!</legend>
+          <div class="row">
+            <div class="small-12 columns">
+              <label>First and last name <small>Required</small>
+                <input name="entry.1598956782" type="text"
+                       placeholder="Ned Stark" required />
+              </label>
+              <small class="error">Required</small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="medium-6 columns">
+              <label>Email <small>Required</small>
+                <input name="entry.2023870425" type="email"
+                       placeholder="ned@stark.house" required />
+              </label>
+              <small class="error">A valid email is required</small>
+            </div>
+            <div class="medium-6 columns">
+              <label>Phone number <small>Required</small>
+                <input name="entry.1286026505" type="text"
+                       placeholder="(415) 444-4444" required />
+              </label>
+              <small class="error">Required</small>
+            </div>
+          </div>
+          <input id="club-generated-input" type="hidden" name="entry.1540069038" value="" />
+          <div class="row" id="club-selection-holder">
+            <div class="medium-6 medium-centered columns">
+              <label>Club <small>Required</small>
+                <select id="club" name="entry.1540069038">
+                  <option value="Armijo High School">Armijo High School</option>
+                  <option value="Cherry Hill High School East">Cherry Hill High School East</option>
+                  <option value="Glenaeon Rudolf Steiner School">Glenaeon Rudolf Steiner School</option>
+                  <option value="Lowell High School">Lowell High School</option>
+                  <option value="Project Cipher">Project Cipher</option>
+                  <option value="USC Hybrid High School">USC Hybrid High School</option>
+                  <option value="College Park High School">College Park High School</option>
+                  <option value="Columbia Secondary School">Columbia Secondary School</option>
+                  <option value="Elizabeth High School">Elizabeth High School</option>
+                  <option value="Ravenwood High School">Ravenwood High School</option>
+                  <option value="San Leandro High School">San Leandro High School</option>
+                  <option value="South Brunswick High School">South Brunswick High School</option>
+                </select>
+              </label>
+              <small class="error">Required</small>
+            </div>
+          </div>
+          <div class="row">
+            <div class="medium-12 columns">
+              <label>What is one thing that we could improve on? <small>Required</small>
+                <input name="entry.682514620" type="text" required />
+              </label>
+              <small class="error">We can't get better unless we know what we
+              could be doing better</small>
+            </div>
+            <div class="medium-12 columns">
+              <label>What is one thing that we did well? <small>Required</small>
+                <input name="entry.166980627" type="text" required />
+              </label>
+              <small class="error">We can't get better unless we know what we
+              could be doing better</small>
+            </div>
+            <div class="medium-12 columns">
+              <label>Please rate from -5 to 5 how satisfied you are with today's club meeting? <small>Required</small>
+                <input name="entry.1797975123" type="text" required />
+              </label>
+              <small class="error">We can't get better unless we know what we
+              could be doing better</small>
+            </div>
+            <div class="medium-12 columns">
+              <label>Anything else you would like to share with us?
+                <input name="entry.1432545558" type="text" />
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <div class="row">
+          <div class="columns">
+            <input type="submit" value="Submit feedback" class="button large apply-submit-btn">
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    <script type="text/javascript">
+      if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage("resize", "*");
+      }
+    </script>
+    <script>
+    $('#expNoCode').click(function() {
+        $('#previous-projects').hide()
+      })
+    $('#expSomeCode,#expCompleteProject,#expMultipleProjects').click(function() {
+        $('#previous-projects').show()
+      })
+    </script>
+    <script>
+      function getQueryVariable() {
+        var query = window.location.hash;
+        var param = query.split("#")[1];
+        if (param) {
+          return param
+        }
+        return(false);
+      }
+
+      codesArray = ['discreet-dove', 'long-lynx', 'amazing-whale', 'valuable-velociraptor', 'frequent-fox', 'versed-eagle', 'educated-emu', 'near-oyster', 'intuitive-falcon', 'subsequent-falcon','invincible-salmon','perpetual-sardine']
+      clubsArray = [];
+      $('#club').children().map(function(){clubsArray.push(this.value)})
+      
+      clubParam = getQueryVariable('club');
+      if (clubParam && $.inArray(decodeURI(clubParam), codesArray) + 2 && clubsArray[$.inArray(clubParam, codesArray)]) {
+        $('#club-selection-holder').hide();
+        $('#club-generated-input')[0].value = clubsArray[$.inArray(clubParam, codesArray)];
+      }
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-47724303-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
