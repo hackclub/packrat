@@ -1,0 +1,39 @@
+= form_for(@response) do |f|
+  - if @response.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@response.errors.count, "error")
+        prohibited this response from being saved:
+      %ul
+        - @response.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :club
+    %br/
+    = f.select :club, @clubs
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :feedback
+    %br/
+    = f.text_area :feedback
+  .field
+    = f.label :phone_number
+    %br/
+    = f.text_field :phone_number
+  .field
+    = f.label :rating
+    %br/
+    = f.text_field :rating
+  .field
+    = f.label :email
+    %br/
+    = f.text_field :email
+  .field
+    = f.label :misc
+    %br/
+    = f.text_area :misc
+  .actions
+    = f.submit

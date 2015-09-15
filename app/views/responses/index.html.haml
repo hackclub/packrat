@@ -1,0 +1,28 @@
+%p#notice= notice
+%h1 Listing Responses
+%table
+  %thead
+    %tr
+      %th Club
+      %th Name
+      %th Feedback
+      %th Phone number
+      %th Rating
+      %th Email
+      %th Misc
+      %th{:colspan => "3"}
+  %tbody
+    - @responses.each do |response|
+      %tr
+        %td= response.club
+        %td= response.name
+        %td= response.feedback
+        %td= response.phone_number
+        %td= response.rating
+        %td= response.email
+        %td= response.misc
+        %td= link_to 'Show', response
+        %td= link_to 'Edit', edit_response_path(response)
+        %td= link_to 'Destroy', response, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Response', new_response_path
