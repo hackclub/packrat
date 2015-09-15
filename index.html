@@ -17,108 +17,100 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
   </head>
   <body>
-    <!--div class="section banner banner-short text-center">
-      <img src="/img/hackedu_logo.png">
-      <h3 class="white hackedu-logo"><a href="/">hackEDU's</a></h3>
-      <h1 class="white title">Apply to Hack Camp</h1>
-    </div>
-    <div class="row application-description">
-      <p>
-        We invite you, brave learner, to participate in our kickoff Hack Camp!
-      </p>
-      <p>
-        Applications for the next session of Hack Camp (June 15th - June 26th)
-        close on May 30th at 12PM PDT.
-      </p>
-    </div-->
     <div class="row">
-      <form data-abide
-            action="https://docs.google.com/forms/d/1ROcWMH1DWC7tdc1NbzuDn85iFWbLDFI7OAEzLgWxy0Q/formResponse"
-            method="POST">
-        <fieldset>
-          <legend>We <3 feedback!</legend>
+      <div class="medium-10 medium-centered columns">
+        <form data-abide
+              action="https://docs.google.com/forms/d/1ROcWMH1DWC7tdc1NbzuDn85iFWbLDFI7OAEzLgWxy0Q/formResponse"
+              method="POST">
+          <fieldset>
+            <legend>We <3 feedback!</legend>
+            <p>We want to make your experience as great as possible and your
+            feedback is an immensely important part of that process. Please answer
+            as honestly as you feel comfortable.</p>
+            <div class="row">
+              <div class="small-12 columns">
+                <label>First and last name <small>Required</small>
+                  <input name="entry.1598956782" type="text"
+                         placeholder="Ned Stark" required />
+                </label>
+                <small class="error">Required</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-6 columns">
+                <label>Email <small>Required</small>
+                  <input name="entry.2023870425" type="email"
+                         placeholder="ned@stark.house" required />
+                </label>
+                <small class="error">A valid email is required</small>
+              </div>
+              <div class="medium-6 columns">
+                <label>Phone number <small>Required</small>
+                  <input name="entry.1286026505" type="text"
+                         placeholder="(415) 444-4444" required />
+                </label>
+                <small class="error">Required</small>
+              </div>
+            </div>
+            <input id="club-generated-input" type="hidden" name="entry.1540069038" value="" />
+            <div class="row" id="club-selection-holder">
+              <div class="small-12 columns">
+                <label>Club <small>Required</small>
+                  <select id="club" name="entry.1540069038">
+                    <option value="Armijo High School">Armijo High School</option>
+                    <option value="Cherry Hill High School East">Cherry Hill High School East</option>
+                    <option value="Glenaeon Rudolf Steiner School">Glenaeon Rudolf Steiner School</option>
+                    <option value="Lowell High School">Lowell High School</option>
+                    <option value="Project Cipher">Project Cipher</option>
+                    <option value="USC Hybrid High School">USC Hybrid High School</option>
+                    <option value="College Park High School">College Park High School</option>
+                    <option value="Columbia Secondary School">Columbia Secondary School</option>
+                    <option value="Elizabeth High School">Elizabeth High School</option>
+                    <option value="Ravenwood High School">Ravenwood High School</option>
+                    <option value="San Leandro High School">San Leandro High School</option>
+                    <option value="South Brunswick High School">South Brunswick High School</option>
+                  </select>
+                </label>
+                <small class="error">Required</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-12 columns">
+                <label>What is one thing that we could improve on? <small>Required</small>
+                  <input name="entry.682514620" type="text" required />
+                </label>
+                <small class="error">We can't get better unless we know what we
+                could be doing better</small>
+              </div>
+              <div class="medium-12 columns">
+                <label>What is one thing that we did well? <small>Required</small>
+                  <input name="entry.166980627" type="text" required />
+                </label>
+                <small class="error">We can't get better unless we know what we
+                could be doing better</small>
+              </div>
+              <div class="medium-12 columns">
+                <label>Please rate from -5 to 5 how satisfied you are with today's club meeting? <small>Required</small>
+                  <small><br>-5: this is terrible | 0: no strong feelings | 5: this is amazing</small>
+                  <input name="entry.1797975123" type="text" required />
+                </label>
+                <small class="error">We can't get better unless we know what we
+                could be doing better</small>
+              </div>
+              <div class="medium-12 columns">
+                <label>Anything else you would like to share with us?
+                  <input name="entry.1432545558" type="text" />
+                </label>
+              </div>
+            </div>
+          </fieldset>
           <div class="row">
-            <div class="small-12 columns">
-              <label>First and last name <small>Required</small>
-                <input name="entry.1598956782" type="text"
-                       placeholder="Ned Stark" required />
-              </label>
-              <small class="error">Required</small>
+            <div class="columns">
+              <input type="submit" value="Submit Feedback" class="button large apply-submit-btn">
             </div>
           </div>
-          <div class="row">
-            <div class="medium-6 columns">
-              <label>Email <small>Required</small>
-                <input name="entry.2023870425" type="email"
-                       placeholder="ned@stark.house" required />
-              </label>
-              <small class="error">A valid email is required</small>
-            </div>
-            <div class="medium-6 columns">
-              <label>Phone number <small>Required</small>
-                <input name="entry.1286026505" type="text"
-                       placeholder="(415) 444-4444" required />
-              </label>
-              <small class="error">Required</small>
-            </div>
-          </div>
-          <input id="club-generated-input" type="hidden" name="entry.1540069038" value="" />
-          <div class="row" id="club-selection-holder">
-            <div class="medium-6 medium-centered columns">
-              <label>Club <small>Required</small>
-                <select id="club" name="entry.1540069038">
-                  <option value="Armijo High School">Armijo High School</option>
-                  <option value="Cherry Hill High School East">Cherry Hill High School East</option>
-                  <option value="Glenaeon Rudolf Steiner School">Glenaeon Rudolf Steiner School</option>
-                  <option value="Lowell High School">Lowell High School</option>
-                  <option value="Project Cipher">Project Cipher</option>
-                  <option value="USC Hybrid High School">USC Hybrid High School</option>
-                  <option value="College Park High School">College Park High School</option>
-                  <option value="Columbia Secondary School">Columbia Secondary School</option>
-                  <option value="Elizabeth High School">Elizabeth High School</option>
-                  <option value="Ravenwood High School">Ravenwood High School</option>
-                  <option value="San Leandro High School">San Leandro High School</option>
-                  <option value="South Brunswick High School">South Brunswick High School</option>
-                </select>
-              </label>
-              <small class="error">Required</small>
-            </div>
-          </div>
-          <div class="row">
-            <div class="medium-12 columns">
-              <label>What is one thing that we could improve on? <small>Required</small>
-                <input name="entry.682514620" type="text" required />
-              </label>
-              <small class="error">We can't get better unless we know what we
-              could be doing better</small>
-            </div>
-            <div class="medium-12 columns">
-              <label>What is one thing that we did well? <small>Required</small>
-                <input name="entry.166980627" type="text" required />
-              </label>
-              <small class="error">We can't get better unless we know what we
-              could be doing better</small>
-            </div>
-            <div class="medium-12 columns">
-              <label>Please rate from -5 to 5 how satisfied you are with today's club meeting? <small>Required</small>
-                <input name="entry.1797975123" type="text" required />
-              </label>
-              <small class="error">We can't get better unless we know what we
-              could be doing better</small>
-            </div>
-            <div class="medium-12 columns">
-              <label>Anything else you would like to share with us?
-                <input name="entry.1432545558" type="text" />
-              </label>
-            </div>
-          </div>
-        </fieldset>
-        <div class="row">
-          <div class="columns">
-            <input type="submit" value="Submit feedback" class="button large apply-submit-btn">
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/foundation.min.js"></script>

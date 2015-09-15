@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic);
 @import url(https://fonts.googleapis.com/css?family=Amaranth);
 body {
-  background: #fafafa;
+  background: #ededed;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
   margin: 0;
@@ -174,6 +174,10 @@ form li input[type="checkbox"] {
 
 input[type="radio"] {
   margin-bottom: 0.75em;
+}
+
+fieldset {
+    background-color: #fafafa;
 }
 
 fieldset legend {
