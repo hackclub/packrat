@@ -170,3 +170,11 @@ fieldset legend {
 .white {
   color: white;
 }
+
+.range-slider-handle {
+  background-color: #db4b4f;
+}
+
+.range-slider-handle:hover {
+  background-color: #d3595d;
+}
