@@ -1,19 +1,26 @@
+# coding: utf-8
 class ResponsesController < ApplicationController
   before_action :set_response, only: [:show, :edit, :update, :destroy]
 
   # GET /responses
-  # GET /responses.json
   def index
     @responses = Response.all
   end
 
   # GET /responses/1
-  # GET /responses/1.json
   def show
   end
 
   # GET /responses/new
   def new
+    @clubs = []
+    if Club.all.to_a.length == 0
+      @clubs.push 'clubs not found'
+    else
+      for club in Club.all.to_a
+        @clubs.push club.name
+      end
+    end
     @response = Response.new
   end
 
