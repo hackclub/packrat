@@ -2,7 +2,6 @@ default: &default
   adapter: postgresql
   pool: 5
   timeout: 5000
-  database: packrat_development
   host: db
   port: 5432
   username: postgres
@@ -10,6 +9,8 @@ default: &default
 
 development:
   <<: *default
+  adapter: sqlite3
+  database: packrat_development.sqlite3
 
 test:
   <<: *default
