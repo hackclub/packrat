@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :form_responses
+  root 'form_responses#new'
+  post 'form_responses' => 'form_responses#create'
+  get 'success' => 'form_responses#success', as: :form_response_success
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
