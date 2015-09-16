@@ -1,39 +1,61 @@
-= form_for(@form_response) do |f|
-  - if @form_response.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@form_response.errors.count, "error")
-        prohibited this response from being saved:
-      %ul
-        - @form_response.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = f.label :club
-    %br/
-    = f.select :club, @clubs
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name
-  .field
-    = f.label :feedback
-    %br/
-    = f.text_area :feedback
-  .field
-    = f.label :phone_number
-    %br/
-    = f.text_field :phone_number
-  .field
-    = f.label :rating
-    %br/
-    = f.text_field :rating
-  .field
-    = f.label :email
-    %br/
-    = f.text_field :email
-  .field
-    = f.label :misc
-    %br/
-    = f.text_area :misc
-  .actions
-    = f.submit
+.row
+  .medium-10.medium-centered.banner.hide-for-small.text-center.columns
+    %h1 We 3 Feedback!
+    %p
+      We want to make your experience as great as possible and your
+      feedback is an immensely important part of that process. Please answer
+      in as much detail as you feel comfortable.
+  .medium-10.medium-centered.columns
+    = form_for(@form_response) do |f|
+      %fieldset
+        - if @form_response.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(@form_response.errors.count, "error")
+              prohibited this response from being saved:
+            %ul
+              - @form_response.errors.full_messages.each do |message|
+                %li= message
+        .small-12.columns
+          .field
+            %label 
+              First and last name
+              %small Required
+            = f.text_field :name, required: true
+        .small-6.columns
+          .field
+            %label 
+              Email
+              %small Required
+            = f.text_field :email, type: :email, required: true
+        .small-6.columns
+          .field
+            %label 
+              Phone number
+              %small Required
+            = f.text_field :phone_number, required: true
+        - unless @club
+          .small-12.columns
+            .field
+              %label 
+                Club
+                %small Required
+              = f.select :club, @clubs
+        .small-12.columns
+          .field
+            %label 
+              Feedback
+              %small Required
+            = f.text_area :feedback, required: true
+        .small-12.columns
+          .field
+            %label 
+              Rating
+              %small Required
+            = f.text_field :rating, required: true
+        .small-12.columns
+          .field
+            = f.label 'Anything else you would like to share with us?'
+            = f.text_area :misc
+        .actions
+      = f.submit 'Submit Feedback', class: 'button large feedback-submit-btn'
