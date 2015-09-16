@@ -178,3 +178,7 @@ fieldset legend {
 .range-slider-handle:hover {
   background-color: #d3595d;
 }
+
+textarea {
+  resize: vertical;
+}
