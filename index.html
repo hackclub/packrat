@@ -164,9 +164,10 @@
       $('#club').children().map(function(){clubsArray.push(this.value)})
       
       clubParam = getQueryVariable('club');
-      if (clubParam && $.inArray(decodeURI(clubParam), codesArray) + 2 && clubsArray[$.inArray(clubParam, codesArray)]) {
+      currentClub = clubsArray[$.inArray(clubParam, codesArray)]
+      if (currentClub) {
         $('#club-selection-holder').hide();
-        $('#club-generated-input')[0].value = clubsArray[$.inArray(clubParam, codesArray)];
+        $('#club-generated-input')[0].value = currentClub;
       }
     </script>
   </body>
