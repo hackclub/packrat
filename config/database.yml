@@ -10,7 +10,7 @@ default: &default
 development:
   <<: *default
   adapter: sqlite3
-  database: packrat_development.sqlite3
+  database: packrat_development.sqlite
 
 test:
   <<: *default

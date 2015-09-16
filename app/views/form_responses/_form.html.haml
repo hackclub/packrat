@@ -1,11 +1,11 @@
-= form_for(@response) do |f|
-  - if @response.errors.any?
+= form_for(@form_response) do |f|
+  - if @form_response.errors.any?
     #error_explanation
       %h2
-        = pluralize(@response.errors.count, "error")
+        = pluralize(@form_response.errors.count, "error")
         prohibited this response from being saved:
       %ul
-        - @response.errors.full_messages.each do |message|
+        - @form_response.errors.full_messages.each do |message|
           %li= message
   .field
     = f.label :club
