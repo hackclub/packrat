@@ -6,7 +6,7 @@
       feedback is an immensely important part of that process. Please answer
       in as much detail as you feel comfortable.
   .medium-10.medium-centered.columns
-    = form_for(@form_response) do |f|
+    = form_for(@form_response, html: {class: 'feedback-form'}) do |f|
       %fieldset
         - if @form_response.errors.any?
           #error_explanation
@@ -23,13 +23,13 @@
               First and last name
               %small Required
             = f.text_field :name, required: true
-        .small-6.columns
+        .small-12.medium-6.columns
           .field
             %label 
               Email
               %small Required
             = f.text_field :email, type: :email, required: true
-        .small-6.columns
+        .small-12.medium-6.columns
           .field
             %label 
               Phone number
@@ -60,4 +60,4 @@
             = f.label 'Anything else you would like to share with us?'
             = f.text_area :misc
         .actions
-      = f.submit 'Submit Feedback', class: 'button large feedback-submit-btn'
+      = f.submit 'Submit Feedback', class: 'button large submit-btn'
