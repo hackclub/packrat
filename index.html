@@ -166,7 +166,7 @@
       clubParam = getQueryVariable('club');
       currentClub = clubsArray[$.inArray(clubParam, codesArray)]
       if (currentClub) {
-        $('#club-selection-holder').hide();
+        $('#club').remove();
         $('#club-generated-input')[0].value = currentClub;
       }
     </script>
