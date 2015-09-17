@@ -51,8 +51,9 @@
         .small-12.columns
           .field
             %label 
-              Rating
+              Please rate from -5 to 5 how satisfied you are with today's club meeting
               %small Required
+              .subheader -5: this is terrible | 0: no strong feelings | 5: this is amazing
             = f.text_field :rating, required: true
         .small-12.columns
           .field
