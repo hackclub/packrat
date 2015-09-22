@@ -1,0 +1,3 @@
+[submodule "vendor/submodules/themes"]
+	path = vendor/submodules/themes
+	url = git@github.com:hackedu/themes.git
