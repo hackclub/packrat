@@ -1,5 +1,6 @@
 # coding: utf-8
 class FormResponsesController < ApplicationController
+  before_filter :authenticate_club_member!
 
   # GET /form_responses/new
   def new

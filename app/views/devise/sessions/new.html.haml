@@ -1,0 +1,7 @@
+.row
+  .small-12.medium-8.large-6.medium-centered.columns
+    .panel.text-center
+      %h1 We <3 feedback!
+      %p This form will only ask for your email through GitHub.
+    = link_to omniauth_authorize_path(resource_name, :github) do
+      %button.button.large.submit-btn.text-center Sign in with GitHub 
