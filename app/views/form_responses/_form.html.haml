@@ -17,12 +17,13 @@
               - @form_response.errors.full_messages.each do |message|
                 %li= message
         %legend.show-for-small-only We <3 Feedback
-        .small-12.columns
-          .field
-            %label 
-              First and last name
-              %small Required
-            = f.text_field :name, required: true
+        - unless current_club_member.full_name
+          .small-12.columns
+            .field
+              %label
+                First and last name
+                %small Required
+              = f.text_field :name, required: true
         - unless @club
           .small-12.columns
             .field

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150922094830) do
+ActiveRecord::Schema.define(version: 20150922103254) do
 
   create_table "club_members", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150922094830) do
     t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
+    t.string   "full_name"
   end
 
   add_index "club_members", ["email"], name: "index_club_members_on_email", unique: true
