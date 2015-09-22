@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :club_members
   root 'feedback_responses#new'
   devise_for :club_leaders
   resources :feedback_responses
