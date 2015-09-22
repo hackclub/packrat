@@ -15,8 +15,14 @@ class FeedbackResponsesController < ApplicationController
   end
 
   def create
+    # If this is the first meeting for the club, create a new meeting
+    unless @last_meeting = current_club_member.club.meetings.last
+      Meeting.create(club_id: current_club_member.club_id)
+      @last_meeting = current_club_member.club.meetings.last
+    end
+
     @feedback_response = FeedbackResponse.new(feedback_response_params)
-    @feedback_response.update(meeting_id: current_club_member.club.meetings.last)
+    @feedback_response.update(meeting_id: @last_meeting.id)
 
     respond_to do |format|
       if @feedback_response.save
