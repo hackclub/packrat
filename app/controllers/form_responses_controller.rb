@@ -5,7 +5,7 @@ class FormResponsesController < ApplicationController
   # GET /form_responses/new
   def new
     @clubs = []
-    if Club.all.to_a.length == 0
+    unless Club.exists?
       @clubs.push 'clubs not found'
     else
       for club in Club.all.to_a
