@@ -24,7 +24,7 @@
                 First and last name
                 %small Required
               = f.text_field :name, required: true
-        - unless @club
+        - unless current_club_member.club_id
           .small-12.columns
             .field
               %label 

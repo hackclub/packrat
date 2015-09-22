@@ -18,6 +18,9 @@ class FormResponsesController < ApplicationController
   # POST /form_responses
   def create
     @form_response = FormResponse.new(form_response_params)
+    unless current_club_member.club_id
+      current_club_member.update(club_id: Club.find_by(name: form_response_params['club']).id)
+    end
     unless current_club_member.full_name
       current_club_member.update(full_name: form_response_params['name'])
     end

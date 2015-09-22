@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150922103254) do
+ActiveRecord::Schema.define(version: 20150922105043) do
 
   create_table "club_members", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(version: 20150922103254) do
     t.string   "provider"
     t.string   "uid"
     t.string   "full_name"
+    t.integer  "club_id"
   end
 
+  add_index "club_members", ["club_id"], name: "index_club_members_on_club_id"
   add_index "club_members", ["email"], name: "index_club_members_on_email", unique: true
   add_index "club_members", ["reset_password_token"], name: "index_club_members_on_reset_password_token", unique: true
 
