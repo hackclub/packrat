@@ -1,64 +1,33 @@
 class FeedbackResponsesController < ApplicationController
-  before_action :set_feedback_response, only: [:show, :edit, :update, :destroy]
+  before_action :set_feedback_response, only: [:show]
+  before_action :authenticate_club_member!, only: [:new]
+  before_action :authenticate_club_leader!, only: [:index, :show]
 
-  # GET /feedback_responses
-  # GET /feedback_responses.json
   def index
     @feedback_responses = FeedbackResponse.all
   end
 
-  # GET /feedback_responses/1
-  # GET /feedback_responses/1.json
   def show
   end
 
-  # GET /feedback_responses/new
   def new
     @feedback_response = FeedbackResponse.new
   end
 
-  # GET /feedback_responses/1/edit
-  def edit
-  end
-
-  # POST /feedback_responses
-  # POST /feedback_responses.json
   def create
     @feedback_response = FeedbackResponse.new(feedback_response_params)
+    @feedback_response.update(meeting_id: current_club_member.club.meetings.last)
 
     respond_to do |format|
       if @feedback_response.save
-        format.html { redirect_to @feedback_response, notice: 'Feedback response was successfully created.' }
-        format.json { render :show, status: :created, location: @feedback_response }
+        format.html { redirect_to feedback_received_path, notice: 'Feedback response was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @feedback_response.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /feedback_responses/1
-  # PATCH/PUT /feedback_responses/1.json
-  def update
-    respond_to do |format|
-      if @feedback_response.update(feedback_response_params)
-        format.html { redirect_to @feedback_response, notice: 'Feedback response was successfully updated.' }
-        format.json { render :show, status: :ok, location: @feedback_response }
-      else
-        format.html { render :edit }
-        format.json { render json: @feedback_response.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /feedback_responses/1
-  # DELETE /feedback_responses/1.json
-  def destroy
-    @feedback_response.destroy
-    respond_to do |format|
-      format.html { redirect_to feedback_responses_url, notice: 'Feedback response was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+  def received
   end
 
   private
