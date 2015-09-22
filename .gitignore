@@ -16,3 +16,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore secret keys
+.env

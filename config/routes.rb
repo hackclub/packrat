@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :club_members
+  devise_for :club_members, controllers: { omniauth_callbacks: 'callbacks'}
   root 'feedback_responses#new'
   devise_for :club_leaders
   get '/dashboard' => 'feedback_responses#index'
