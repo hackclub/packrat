@@ -4,7 +4,7 @@ class FeedbackResponsesController < ApplicationController
   before_action :authenticate_club_leader!, only: [:index, :show]
 
   def index
-    @feedback_responses = FeedbackResponse.all
+    @feedback_responses = current_club_leader.clubs
   end
 
   def show
