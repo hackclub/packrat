@@ -1,0 +1,23 @@
+%h1 Listing feedback_responses
+
+%table
+  %thead
+    %tr
+      %th Meeting
+      %th Rating
+      %th
+      %th
+      %th
+
+  %tbody
+    - @feedback_responses.each do |feedback_response|
+      %tr
+        %td= feedback_response.meeting
+        %td= feedback_response.rating
+        %td= link_to 'Show', feedback_response
+        %td= link_to 'Edit', edit_feedback_response_path(feedback_response)
+        %td= link_to 'Destroy', feedback_response, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Feedback response', new_feedback_response_path

@@ -1,0 +1,16 @@
+= form_for @feedback_response do |f|
+  - if @feedback_response.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@feedback_response.errors.count, "error")} prohibited this feedback_response from being saved:"
+      %ul
+        - @feedback_response.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :meeting
+    = f.text_field :meeting
+  .field
+    = f.label :rating
+    = f.number_field :rating
+  .actions
+    = f.submit 'Save'

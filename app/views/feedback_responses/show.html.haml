@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Meeting:
+  = @feedback_response.meeting
+%p
+  %b Rating:
+  = @feedback_response.rating
+
+= link_to 'Edit', edit_feedback_response_path(@feedback_response)
+\|
+= link_to 'Back', feedback_responses_path
