@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :club_members, controllers: { omniauth_callbacks: 'callbacks' }
   root 'form_responses#new'
   post 'form_responses' => 'form_responses#create'
   get 'success' => 'form_responses#success', as: :form_response_success
