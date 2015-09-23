@@ -12,17 +12,30 @@ class FeedbackResponsesController < ApplicationController
 
   def new
     @feedback_response = FeedbackResponse.new
+    @new_user = (!(current_club_member.full_name && current_club_member.full_name) || false)
+    @clubs = Club.all
   end
 
   def create
-    # If this is the first meeting for the club, create a new meeting
-    unless @last_meeting = current_club_member.club.meetings.last
-      Meeting.create(club_id: current_club_member.club_id)
-      @last_meeting = current_club_member.club.meetings.last
+    # If this is the first submission by the club member, record their club and
+    # full name...
+    unless current_club_member.full_name
+      @full_name = feedback_response_params['full_name']
+      current_club_member.update(full_name: @full_name)
+    end
+    # ... and their club
+    unless current_club_member.club
+      @club = feedback_response_params['club']
+      current_club_member.update(club: @club)
+    end
+
+    # If this is the first feedback for the day, create a new meeting
+    unless current_club_member.club && @current_meeting = current_club_member.club.meetings.find_by(created_at: Date.today)
+      @current_meeting = Meeting.create(club: current_club_member.club)
     end
 
     @feedback_response = FeedbackResponse.new(feedback_response_params)
-    @feedback_response.update(meeting_id: @last_meeting.id)
+    @feedback_response.update(meeting: @current_meeting)
 
     respond_to do |format|
       if @feedback_response.save
@@ -44,6 +57,6 @@ class FeedbackResponsesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feedback_response_params
-      params.require(:feedback_response).permit(:meeting_id, :rating)
+      params.require(:feedback_response).permit(:meeting_id, :rating, :full_name, :club)
     end
 end

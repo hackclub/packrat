@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150922201419) do
+ActiveRecord::Schema.define(version: 20150923223113) do
 
   create_table "club_leaders", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -64,10 +64,12 @@ ActiveRecord::Schema.define(version: 20150922201419) do
   create_table "feedback_responses", force: :cascade do |t|
     t.integer  "meeting_id"
     t.integer  "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "club_member_id"
   end
 
+  add_index "feedback_responses", ["club_member_id"], name: "index_feedback_responses_on_club_member_id"
   add_index "feedback_responses", ["meeting_id"], name: "index_feedback_responses_on_meeting_id"
 
   create_table "meetings", force: :cascade do |t|
