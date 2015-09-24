@@ -1,2 +1,4 @@
-%h1 Clubs#index
-%p Find me in app/views/clubs/index.html.haml
+.row
+  - @clubs.each do |club|
+    .col-md-4
+      = render club
