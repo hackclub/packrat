@@ -13,16 +13,25 @@
               %ul
                 - feedback_response.errors.full_messages.each do |msg|
                   %li= msg
-          - if new_user
+          - if current_club_member.full_name.blank?
             .form-group
               %label Full name
               = text_field_tag :full_name, nil, class: 'form-control',
                 placeholder: 'Zaphod Beeblebrox', required: true
+          - if current_club_member.club.blank?
             .form-group
               %label Club
-              = select_tag :club, options_from_collection_for_select(clubs, :id,
-                :name), class: 'form-control', prompt: 'Choose one',
+              = select_tag :club_id, options_from_collection_for_select(clubs,
+                :id, :name), class: 'form-control', prompt: 'Choose one',
                 required: true
+          .form-group
+            %label What is one thing that we could improve on?
+            = f.text_area :one_thing_to_improve_on, class: 'form-control',
+              required: true
+          .form-group
+            %label What is one thing that we did well?
+            = f.text_area :one_thing_done_well, class: 'form-control',
+              required: true
           .form-group
             %label
               Please rate from -5 to 5 how satisfied you are with today's club
@@ -30,5 +39,8 @@
             .col-xs-6
               = f.range_field :rating, min: -5, value: 0, max: 5,
                 required: true
+          .form-group
+            %label Anything else you would like to share with us?
+            = f.text_area :anything_else_to_share, class: 'form-control'
         .modal-body
-          = f.submit 'Submit', class: 'btn btn-default'
+          = f.submit 'Submit Feedback', class: 'btn btn-default'
