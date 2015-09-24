@@ -5,27 +5,15 @@
     .statcard.p-a-md
       %h3.statcard-number= club_last_meeting_date(club)
       %span.statcard-desc Last meeting date
-    .statcard.statcard-info.m-b
-      .p-a-md
-        %span.statcard-desc Attendees
-        %h2.statcard-number
-          = club_last_feedback_count(club)
-          %small.delta-indicator.delta-positive 5%
-        %hr.statcard-hr.m-b-0
-      %canvas.sparkline{'data-chart': 'spark-line',
-                        'data-labels': club_meetings_chart_labels(club).to_json,
-                        'data-value': club_meetings_attendees_chart_data(club).to_json,
-                        height: '94',
-                        width: '378'}
-    .statcard.statcard-success
-      .p-a-md
-        %span.statcard-desc Average Rating
-        %h3.statcard-number
-          = club_last_average_rating(club)
-          %small.delta-indicator.delta-negative -2%
-          %hr.statcard-hr.m-b-0
-      %canvas.sparkline{'data-chart': 'spark-line',
-                        'data-labels': club_meetings_chart_labels(club).to_json,
-                        'data-value': club_meetings_rating_chart_data(club).to_json,
-                        height: '94',
-                        width: '378'}
+    = render 'club_statcard',
+        description: 'Attendees',
+        number: club_last_attendee_count(club),
+        delta: club_meetings_attendee_count_percentage_delta(club),
+        chart_labels: club_meetings_chart_labels(club).to_json,
+        chart_values: club_meetings_attendees_chart_data(club).to_json
+    = render 'club_statcard',
+        description: 'Average Rating',
+        number: club_last_average_rating(club),
+        delta: club_meetings_average_rating_percentage_delta(club),
+        chart_labels: club_meetings_chart_labels(club).to_json,
+        chart_values: club_meetings_rating_chart_data(club).to_json
