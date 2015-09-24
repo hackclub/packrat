@@ -13,5 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree ../../../vendor/assets/javascripts/bootstrap-dashboard
+//= require Chart
+//= require bootstrap-dashboard/bootstrap/alert
+//= require bootstrap-dashboard/custom/chartjs-data-api
 //= require_tree .
