@@ -1,6 +1,8 @@
 module ClubsHelper
   def club_last_attendee_count(club)
-    club.meetings.last.attendee_count || 'N/A'
+    last_meeting = club.meetings.last
+
+    last_meeting ? last_meeting.attendee_count : 'N/A'
   end
 
   def club_last_meeting_date(club)
@@ -41,12 +43,20 @@ module ClubsHelper
     last_meeting = club.meetings[-1]
     comparison_meeting = club.meetings[-2]
 
+    if last_meeting.nil? || comparison_meeting.nil?
+      return nil
+    end
+
     last_meeting.attendee_count_percentage_delta(comparison_meeting)
   end
 
   def club_meetings_average_rating_percentage_delta(club)
     last_meeting = club.meetings[-1]
     comparison_meeting = club.meetings[-2]
+
+    if last_meeting.nil? || comparison_meeting.nil?
+      return nil
+    end
 
     last_meeting.average_rating_percentage_delta(comparison_meeting)
   end
