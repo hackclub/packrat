@@ -1,5 +1,35 @@
-%h1 New feedback_response
-
-= render 'form'
-
-= link_to 'Back', feedback_responses_path
+.container
+  .modal.show
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %h4.modal-title We <3 Feedback
+        = form_for @feedback_response do |f|
+          .modal-body
+            - if @feedback_response.errors.any?
+              #error_explanation
+                %h2
+                  #{pluralize(@feedback_response.errors.count, "error")}
+                  prohibited this feedback_response from being saved
+                %ul
+                  - @feedback_response.errors.full_messages.each do |msg|
+                    %li= msg
+            - if @new_user
+              .form-group
+                %label Full name
+                = text_field_tag :full_name, nil, class: 'form-control',
+                  placeholder: 'Zaphod Beeblebrox', required: true
+              .form-group
+                %label Club
+                = select_tag :club, options_from_collection_for_select(@clubs,
+                  :id, :name), class: 'form-control',
+                  prompt: 'Choose one', required: true
+            .form-group
+              %label
+                Please rate from -5 to 5 how satisfied you are with today's club
+                meeting
+              .col-xs-6
+                = f.range_field :rating, min: -5, value: 0, max: 5,
+                  required: true
+          .modal-body
+            = f.submit 'Submit', class: 'btn btn-default'
