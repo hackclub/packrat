@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   devise_for :club_members, controllers: { omniauth_callbacks: 'callbacks'}
+
+  devise_scope :club_member do
+    get 'club_members/sign_in', to: 'devise/sessions#new',
+      as: :new_club_member_session
+    delete 'club_members/sign_out', to: 'devise/sessions#destroy',
+      as: :destroy_club_member_session
+  end
+
   devise_for :club_leaders
   get '/dashboard' => 'feedback_responses#index'
   get '/dashboard/:id' => 'feedback_responses#show'

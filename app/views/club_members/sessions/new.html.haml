@@ -3,23 +3,10 @@
 .modal.modal-center.show
   .modal-dialog.modal-dialog-center.modal-sm
     .modal-content
-      = form_for(resource, as: resource_name,
-        url: session_path(resource_name)) do |f|
-        .modal-header
-          %h4.modal-title Login
-        .modal-body
-          .form-group
-            = f.label :email
-            = f.email_field :email, autofocus: true, class: 'form-control'
-          .form-group
-            = f.label :password
-            = f.password_field :password, autocomplete: 'off',
-              class: 'form-control'
-          - if devise_mapping.rememberable?
-            .checkbox
-              %label
-                = f.check_box :remember_me
-                Remember me
-          = f.submit 'Login', class: 'btn btn-default'
-        .modal-body
-          = render 'club_members/shared/links'
+      .modal-body
+        - resource_class.omniauth_providers.each do |provider|
+          .authenticate
+            = link_to omniauth_authorize_path(resource_name, provider) do
+              Sign in with
+              =provider.to_s.titleize
+
