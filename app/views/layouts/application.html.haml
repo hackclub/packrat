@@ -23,7 +23,9 @@
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
-            = link_to 'Labs', '#', class: 'navbar-brand navbar-brand-emphasized'
+            = link_to '#', class: 'navbar-brand navbar-brand-emphasized' do
+              %span.icon.icon-line-graph.navbar-brand-icon
+              Labs
           #navbar.navbar-collapse.collapse
             = render 'layouts/nav_items'
 
