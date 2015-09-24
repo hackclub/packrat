@@ -1,0 +1,14 @@
+.statcard.m-b
+  .p-a-md
+    %span.statcard-desc= description
+    %h2.statcard-number
+      = number
+      - unless delta.blank?
+        %small.delta-indicator{class: delta > 0 ? 'delta-positive' : 'delta-negative'}
+          = number_to_percentage(delta, precision: 0)
+    %hr.statcard-hr.m-b-0
+  %canvas.sparkline{'data-chart': 'spark-line',
+                    'data-labels': chart_labels,
+                    'data-value': chart_values,
+                    height: '94',
+                    width: '378'}
