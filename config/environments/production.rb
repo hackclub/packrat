@@ -76,4 +76,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Redirect HTTP to HTTPS
+  config.middleware.use Rack::SslEnforcer
 end

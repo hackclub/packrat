@@ -133,6 +133,7 @@ GEM
     pg (0.18.3)
     puma (2.14.0)
     rack (1.6.4)
+    rack-ssl-enforcer (0.2.9)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.4)
@@ -215,6 +216,7 @@ DEPENDENCIES
   omniauth-github
   pg
   puma
+  rack-ssl-enforcer
   rails (= 4.2.4)
   sdoc (~> 0.4.0)
   spring

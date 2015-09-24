@@ -16,6 +16,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'chart-js-rails'
+gem 'rack-ssl-enforcer'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
