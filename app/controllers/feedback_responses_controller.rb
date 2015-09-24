@@ -1,6 +1,6 @@
 class FeedbackResponsesController < ApplicationController
   before_action :set_feedback_response, only: [:show]
-  before_action :authenticate_club_member!, only: [:new]
+  before_action :authenticate_club_member_without_flash!, only: [:new]
   before_action :authenticate_club_leader!, only: [:index, :show]
 
   def index
@@ -58,5 +58,13 @@ class FeedbackResponsesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def feedback_response_params
       params.require(:feedback_response).permit(:meeting_id, :rating, :full_name, :club)
+    end
+
+    # Redirects club member to login page if they're not signed in and doesn't
+    # flash
+    def authenticate_club_member_without_flash!
+      unless club_member_signed_in?
+        redirect_to new_club_member_session_path
+      end
     end
 end

@@ -1,0 +1,25 @@
+@import "./vendor_prefixes.less";
+@import "bootstrap-dashboard/variables-inverse.less";
+
+.modal-center {
+  text-align: center;
+}
+
+@media screen and (min-width: @screen-sm) {
+  .modal-center:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog-center {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.blur {
+  .filter(blur(1px));
+}

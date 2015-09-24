@@ -1,0 +1,23 @@
+= render 'club_members/shared/club_leader_background'
+
+.modal.modal-center.show
+  .modal-dialog.modal-dialog-center.modal-sm
+    .modal-content
+      = form_for(resource, as: resource_name,
+        url: registration_path(resource_name)) do |f|
+        .modal-header
+          %h4.modal-title Sign up
+        .modal-body
+          = devise_error_messages!
+          .form-group
+            = f.label :email
+            = f.email_field :email, autofocus: true, class: 'form-control'
+          .form-group
+            = f.label :password
+            = f.password_field :password, class: 'form-control'
+          .form-group
+            = f.label :password_confirmation
+            = f.password_field :password_confirmation, class: 'form-control'
+          = f.submit 'Sign up', class: 'btn btn-default'
+        .modal-body
+          = render 'club_members/shared/links'
