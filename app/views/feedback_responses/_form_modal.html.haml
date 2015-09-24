@@ -13,15 +13,16 @@
               %ul
                 - feedback_response.errors.full_messages.each do |msg|
                   %li= msg
-          - if new_user
+          - if current_club_member.full_name.blank?
             .form-group
               %label Full name
               = text_field_tag :full_name, nil, class: 'form-control',
                 placeholder: 'Zaphod Beeblebrox', required: true
+          - if current_club_member.club.blank?
             .form-group
               %label Club
-              = select_tag :club, options_from_collection_for_select(clubs, :id,
-                :name), class: 'form-control', prompt: 'Choose one',
+              = select_tag :club_id, options_from_collection_for_select(clubs,
+                :id, :name), class: 'form-control', prompt: 'Choose one',
                 required: true
           .form-group
             %label What is one thing that we could improve on?
