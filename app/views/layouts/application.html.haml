@@ -6,6 +6,26 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
-    = render 'layouts/flash'
-    = yield
+  - if current_club_leader.nil?
+    %body
+      = render 'layouts/flash'
+      = yield
+  - else
+    %body.with-top-navbar
+      = render 'layouts/flash'
+      %nav.navbar.navbar-inverse.navbar-fixed-top
+        .container.container-spacious
+          .navbar-header
+            %button{type: 'button', class: 'navbar-toggle collapsed',
+             'data-toggle': 'collapse', 'data-target': '#navbar',
+             'aria-expanded': 'false', 'aria-controls': 'navbar'}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            = link_to 'Labs', '#', class: 'navbar-brand navbar-brand-emphasized'
+          #navbar.navbar-collapse.collapse
+            = render 'layouts/nav_items'
+
+      .container.container-spacious
+        = yield

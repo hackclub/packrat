@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
   devise_for :club_members, controllers: { omniauth_callbacks: 'callbacks'}
-  root 'feedback_responses#new'
   devise_for :club_leaders
   get '/dashboard' => 'feedback_responses#index'
   get '/dashboard/:id' => 'feedback_responses#show'
   post '/feedback_responses' => 'feedback_responses#create'
   get '/feedback_received' => 'feedback_responses#received'
+
+  resources :clubs
+
+  authenticated :club_leader do
+    root to: 'clubs#index', as: :authenticate_club_leader
+  end
+
+  root to: 'feedback_responses#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
