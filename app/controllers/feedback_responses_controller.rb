@@ -36,6 +36,7 @@ class FeedbackResponsesController < ApplicationController
 
     @feedback_response = FeedbackResponse.new(feedback_response_params)
     @feedback_response.meeting = @current_meeting
+    @feedback_response.club_member = @current_club_member
 
     respond_to do |format|
       if @feedback_response.save
