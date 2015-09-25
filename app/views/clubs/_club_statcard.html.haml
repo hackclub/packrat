@@ -2,7 +2,7 @@
   .p-a-md
     %span.statcard-desc= description
     %h2.statcard-number
-      = number
+      = number_with_precision number, precision: 1
       - unless delta.blank?
         %small.delta-indicator{class: delta > 0 ? 'delta-positive' : 'delta-negative'}
           = number_to_percentage(delta, precision: 0)
