@@ -1,4 +1,6 @@
 class Meeting < ActiveRecord::Base
+  default_scope { order('created_at DESC') }
+
   belongs_to :club
   has_many :feedback_responses, dependent: :destroy
 
