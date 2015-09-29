@@ -1,6 +1,6 @@
 .panel.panel-default
   .panel-heading
-    %h3.panel-title= club.name
+    %h3.panel-title= link_to club.name, club_path(club)
   .panel-body
     .statcard.p-a-md
       %h3.statcard-number= club_last_meeting_date(club)

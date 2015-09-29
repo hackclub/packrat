@@ -1,2 +1,15 @@
-%h1 Clubs#show
-%p Find me in app/views/clubs/show.html.haml
+%h1= @club.name
+%table.table.table-hover
+  %thead
+    %tr
+      %th Date
+      %th Attendee Count
+      %th Average Rating
+      %th Link
+  %tbody
+    - @meetings.each do |meeting|
+      %tr
+        %td= format_day_of_month(meeting.created_at)
+        %td= meeting.attendee_count
+        %td= meeting.average_rating
+        %td= link_to 'View Meeting', meeting_path(meeting)

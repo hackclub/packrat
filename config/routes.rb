@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/feedback_received' => 'feedback_responses#received'
 
   resources :clubs
+  resources :meetings, only: [:show]
 
   authenticated :club_leader do
     root to: 'clubs#index', as: :authenticate_club_leader

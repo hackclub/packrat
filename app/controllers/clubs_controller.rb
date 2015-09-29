@@ -1,4 +1,6 @@
 class ClubsController < ApplicationController
+  before_action :authenticate_club_leader!
+
   def index
     @clubs = Club.all
   end
@@ -10,6 +12,8 @@ class ClubsController < ApplicationController
   end
 
   def show
+    @club = Club.find(params[:id])
+    @meetings = @club.meetings.order('created_at DESC')
   end
 
   def edit
