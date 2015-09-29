@@ -30,3 +30,8 @@ Set the following environment variables, in addition to the above:
     mode.
   - `RAILS_SERVE_STATIC_FILES` - Set to `true` if deploying with Docker image
   - `PORT` (optional) - Port to run server on. Default: `3000`
+
+## License
+
+This repository is distributed under the MIT license found in the
+[LICENSE](./LICENSE) file.
