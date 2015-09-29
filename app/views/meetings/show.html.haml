@@ -1,0 +1,20 @@
+%h1 Meeting on #{format_day_of_month(@meeting.created_at)}
+
+%h2 Feedback
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th What is one thing that we could improve on?
+      %th What is one thing that we did well?
+      %th Rating
+      %th Anything else you would like to share?
+  %tbody
+    - @feedback_responses.each do |response|
+      %tr
+        %td= meeting_feedback_response_submitter_name(response)
+        %td= response.one_thing_to_improve_on
+        %td= response.one_thing_done_well
+        %td= response.rating
+        %td= response.anything_else_to_share
