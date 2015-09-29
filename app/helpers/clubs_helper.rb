@@ -8,7 +8,7 @@ module ClubsHelper
   def club_last_meeting_date(club)
     date = club.last_meeting_date
 
-    date.nil? ? 'N/A' : date.strftime('%m/%d/%Y')
+    date.nil? ? 'N/A' : format_day_of_month(date)
   end
 
   def club_last_average_rating(club)
