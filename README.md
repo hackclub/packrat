@@ -2,10 +2,14 @@
 
 ## Getting Started
 
-Set the following environment variables:
+Add the following environment variables to a file called `.env`:
 
 - `GITHUB_ID` - GitHub client id
 - `GITHUB_SECRET` - GitHub client secret
+
+Launch Packrat:
+
+    docker-compose up
 
 ## Deployment
 
