@@ -40,6 +40,8 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-social-rails (4.8.0)
+      railties (>= 3.1)
     builder (3.2.2)
     byebug (6.0.2)
     chart-js-rails (0.0.9)
@@ -204,6 +206,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-social-rails
   byebug
   chart-js-rails
   coffee-rails (~> 4.1.0)

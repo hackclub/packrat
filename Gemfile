@@ -16,6 +16,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'chart-js-rails'
+gem 'bootstrap-social-rails'
 gem 'rack-ssl-enforcer'
 
 group :development, :test do
