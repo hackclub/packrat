@@ -4,9 +4,7 @@
   .modal-dialog.modal-dialog-center.modal-sm
     .modal-content
       .modal-body
-        - resource_class.omniauth_providers.each do |provider|
-          .authenticate
-            = link_to omniauth_authorize_path(resource_name, provider) do
-              Sign in with
-              =provider.to_s.titleize
-
+        = link_to omniauth_authorize_path(resource_name, 'github'),
+        class: 'btn btn-block btn-social btn-lg btn-github' do
+          %i.icon.icon-github
+          Sign in with GitHub
