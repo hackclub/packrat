@@ -18,9 +18,7 @@ module ClubsHelper
   end
 
   def club_meetings_chart_labels(club)
-    [
-      data: club.meetings.map { |m| m.id }
-    ]
+    club.meetings.map { |m| m.id }
   end
 
   def club_meetings_attendees_chart_data(club)
