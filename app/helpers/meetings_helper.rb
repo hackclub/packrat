@@ -4,4 +4,8 @@ module MeetingsHelper
 
     submitter.nil? ? 'N/A' : submitter.full_name
   end
+
+  def meeting_pretty_average_rating(meeting)
+    meeting.average_rating.round(1)
+  end
 end

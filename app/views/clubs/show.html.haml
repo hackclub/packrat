@@ -11,5 +11,5 @@
       %tr
         %td= format_day_of_month(meeting.created_at)
         %td= meeting.attendee_count
-        %td= meeting.average_rating
+        %td= meeting_pretty_average_rating(meeting)
         %td= link_to 'View Meeting', meeting_path(meeting)
