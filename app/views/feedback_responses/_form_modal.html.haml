@@ -34,6 +34,12 @@
               required: true
           .form-group
             %label
+              Describe in one sentence what you worked on today. Include any
+              links if applicable.
+            = f.text_area :project_description, class: 'form-control',
+              required: true
+          .form-group
+            %label
               Please rate from -5 to 5 how satisfied you are with today's club
               meeting
             .col-xs-6

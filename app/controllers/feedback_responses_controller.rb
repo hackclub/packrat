@@ -67,7 +67,7 @@ class FeedbackResponsesController < ApplicationController
     def feedback_response_params
       params.require(:feedback_response).permit(
         :meeting_id, :one_thing_to_improve_on, :one_thing_done_well, :rating,
-        :anything_else_to_share
+        :anything_else_to_share, :project_description
       )
     end
 
