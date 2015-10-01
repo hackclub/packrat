@@ -61,6 +61,8 @@ GEM
       railties (~> 4.0)
     erubis (2.7.0)
     execjs (2.6.0)
+    faker (1.5.0)
+      i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     globalid (0.3.6)
@@ -210,6 +212,7 @@ DEPENDENCIES
   chart-js-rails
   coffee-rails (~> 4.1.0)
   dotenv-rails
+  faker
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
