@@ -3,7 +3,7 @@
     .modal-content
       = form_for feedback_response do |f|
         .modal-header
-          %h4.modal-title We <3 Feedback
+          %h4.modal-title We <span class="icon icon-heart"></span> Feedback
         .modal-body
           - if feedback_response.errors.any?
             #error_explanation
