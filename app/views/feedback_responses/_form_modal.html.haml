@@ -40,7 +40,9 @@
               = f.range_field :rating, min: -5, value: 0, max: 5,
                 required: true
           .form-group
-            %label Describe in one sentence what you worked on today.
+            %label
+              Describe in one sentence what you worked on today. Include any
+              links, if available.
             = f.text_area :project_description, class: 'form-control',
               required: true
           .form-group
