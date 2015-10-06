@@ -2,6 +2,12 @@
 
 ## Getting Started
 
+[Register a GitHub application](https://github.com/settings/applications/new)
+with the following fields:
+
+- Homepage URL - `http://localhost:3000`
+- Application callback URL - `http://localhost:3000/club_members/auth/github/callback`
+
 Add the following environment variables to a file called `.env`:
 
 - `GITHUB_ID` - GitHub client id
@@ -10,6 +16,10 @@ Add the following environment variables to a file called `.env`:
 Launch Packrat:
 
     docker-compose up
+
+You may need access to the Bootstrap theme we bought for Packrat, which is in a
+private submodule. Please create an issue if you need access and we'll work
+with you to make that happen.
 
 ## Deployment
 
