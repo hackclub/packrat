@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+// Allow scrolling on feedback form.
+// Based on https://stackoverflow.com/questions/21590213/fixed-header-position-in-bootstrap-3-modal/23324116#23324116
+.modal-body {
+    max-height: calc(100vh - 190px);
+    overflow-y: auto;
+}
