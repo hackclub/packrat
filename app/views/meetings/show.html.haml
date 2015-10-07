@@ -9,6 +9,7 @@
       %th What is one thing that we could improve on?
       %th What is one thing that we did well?
       %th Rating
+      %th Describe in one sentence what you worked on today.
       %th Anything else you would like to share?
   %tbody
     - @feedback_responses.each do |response|
@@ -17,4 +18,5 @@
         %td= response.one_thing_to_improve_on
         %td= response.one_thing_done_well
         %td= response.rating
+        %td= auto_link response.project_description
         %td= response.anything_else_to_share
