@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :club_members, controllers: { omniauth_callbacks: 'callbacks'}
+  devise_for :club_members
 
   devise_scope :club_member do
     get 'club_members/sign_in', to: 'devise/sessions#new',
@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   end
 
   devise_for :club_leaders
+
+  # OmniAuth Routes
+  get '/auth/:provider/new', to: 'sessions#new'
+  get '/auth/:provider/callback', to: 'sessions#create'
+
+  # Application Routes
   get '/dashboard' => 'feedback_responses#index'
   get '/dashboard/:id' => 'feedback_responses#show'
   post '/feedback_responses' => 'feedback_responses#create'

@@ -217,6 +217,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   less-rails (~> 2.7)
+  omniauth
   omniauth-github
   pg
   puma
