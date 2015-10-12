@@ -4,10 +4,6 @@ class FeedbackResponsesController < ApplicationController
   before_action :authenticate_leader!, only: [:index, :show]
   before_action :authenticate_user, only: [:index]
 
-  def index
-    @feedback_responses = current_club_leader.clubs
-  end
-
   def show
   end
 
@@ -20,12 +16,12 @@ class FeedbackResponsesController < ApplicationController
     # If this is the first submission by the club member, record their club and
     # full name...
     if current_member.user.name.blank?
-      @name = club_member_params[:name]
+      @name = member_params[:name]
       current_member.update(user_attributes: { name: @name })
     end
     # ... and their club
     if current_member.club.blank?
-      @club = Club.find(club_member_params[:club_id])
+      @club = Club.find(member_params[:club_id])
       current_member.update(club: @club)
     end
 
@@ -37,7 +33,7 @@ class FeedbackResponsesController < ApplicationController
 
     @feedback_response = FeedbackResponse.new(feedback_response_params)
     @feedback_response.meeting = @current_meeting
-    @feedback_response.club_member = @current_member
+    @feedback_response.member = current_member
 
     respond_to do |format|
       if @feedback_response.save
@@ -60,23 +56,16 @@ class FeedbackResponsesController < ApplicationController
 
     # If the form included parameters for the club member (like their name or
     # club), then it'll be present here.
-    def club_member_params
+    def member_params
       params.permit(:full_name, :club_id)
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only allow the white list
+    # through.
     def feedback_response_params
       params.require(:feedback_response).permit(
         :meeting_id, :one_thing_to_improve_on, :one_thing_done_well, :rating,
         :anything_else_to_share, :project_description
       )
-    end
-
-    # Redirects club member to login page if they're not signed in and doesn't
-    # flash
-    def authenticate_club_member_without_flash!
-      unless club_member_signed_in?
-        redirect_to new_club_member_session_path
-      end
     end
 end

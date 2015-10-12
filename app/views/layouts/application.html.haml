@@ -6,7 +6,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  - if current_club_leader.nil?
+  - if current_leader.nil?
     %body
       = render 'layouts/flash'
       = yield

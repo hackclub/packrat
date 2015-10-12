@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :authenticate_club_leader!
+  before_action :authenticate_leader!
 
   def show
     @meeting = Meeting.find(params[:id])
