@@ -1,11 +1,5 @@
 class FeedbackResponsesController < ApplicationController
-  before_action :set_feedback_response, only: [:show]
   before_action :authenticate_member!, only: [:new]
-  before_action :authenticate_leader!, only: [:index, :show]
-  before_action :authenticate_user, only: [:index]
-
-  def show
-  end
 
   def new
     @feedback_response = FeedbackResponse.new
@@ -49,11 +43,6 @@ class FeedbackResponsesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_feedback_response
-      @feedback_response = FeedbackResponse.find(params[:id])
-    end
-
     # If the form included parameters for the club member (like their name or
     # club), then it'll be present here.
     def member_params

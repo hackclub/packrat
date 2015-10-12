@@ -12,8 +12,6 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
 
   # Application Routes
-  get '/dashboard' => 'feedback_responses#index'
-  get '/dashboard/:id' => 'feedback_responses#show'
   post '/feedback_responses' => 'feedback_responses#create'
   get '/feedback_received' => 'feedback_responses#received'
 
