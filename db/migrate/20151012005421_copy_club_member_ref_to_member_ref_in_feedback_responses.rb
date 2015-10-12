@@ -6,8 +6,18 @@ class CopyClubMemberRefToMemberRefInFeedbackResponses < ActiveRecord::Migration
 
   def up
     FeedbackResponse.find_each do |resp|
-      member = ClubMember.find(resp.club_member_id)
-      resp.update(member: User.find_by(email: member.email).meta)
+      if resp.club_member_id
+        cm = ClubMember.find(resp.club_member_id)
+
+        user = nil
+        if cm.email
+          user = User.find_by(email: cm.email)
+        elsif cm.uid and cm.provider
+          user = User.find_by(uid: cm.uid, provider: cm.provider)
+        end
+
+        resp.update(member: user.meta)
+      end
     end
   end
 
