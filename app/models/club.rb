@@ -1,6 +1,7 @@
 class Club < ActiveRecord::Base
   has_many :club_leaders
   has_many :club_members
+  has_many :members
   has_many :meetings, dependent: :destroy
 
   # Returns the number of feedback responses submitted at the last meeting. If

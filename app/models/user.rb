@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  belongs_to :meta, polymorphic: true
+
   def self.create_from_auth_hash(auth_hash)
     create! do |user|
       user.provider = auth_hash.provider

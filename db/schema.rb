@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010023103) do
+ActiveRecord::Schema.define(version: 20151012005421) do
 
   create_table "club_leaders", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -66,10 +66,17 @@ ActiveRecord::Schema.define(version: 20151010023103) do
     t.text     "one_thing_done_well"
     t.text     "anything_else_to_share"
     t.string   "project_description"
+    t.integer  "member_id"
   end
 
   add_index "feedback_responses", ["club_member_id"], name: "index_feedback_responses_on_club_member_id"
   add_index "feedback_responses", ["meeting_id"], name: "index_feedback_responses_on_meeting_id"
+  add_index "feedback_responses", ["member_id"], name: "index_feedback_responses_on_member_id"
+
+  create_table "leaders", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "meetings", force: :cascade do |t|
     t.integer  "club_id"
@@ -79,6 +86,14 @@ ActiveRecord::Schema.define(version: 20151010023103) do
 
   add_index "meetings", ["club_id"], name: "index_meetings_on_club_id"
 
+  create_table "members", force: :cascade do |t|
+    t.integer  "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "members", ["club_id"], name: "index_members_on_club_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "provider"
     t.string   "uid"
@@ -87,6 +102,10 @@ ActiveRecord::Schema.define(version: 20151010023103) do
     t.string   "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "meta_id"
+    t.string   "meta_type"
   end
+
+  add_index "users", ["meta_id", "meta_type"], name: "index_users_on_meta_id_and_meta_type"
 
 end

@@ -1,7 +1,8 @@
 class FeedbackResponsesController < ApplicationController
   before_action :set_feedback_response, only: [:show]
-  before_action :authenticate_club_member_without_flash!, only: [:new]
-  before_action :authenticate_club_leader!, only: [:index, :show]
+  before_action :authenticate_member!, only: [:new]
+  before_action :authenticate_leader!, only: [:index, :show]
+  before_action :authenticate_user, only: [:index]
 
   def index
     @feedback_responses = current_club_leader.clubs
@@ -18,25 +19,25 @@ class FeedbackResponsesController < ApplicationController
   def create
     # If this is the first submission by the club member, record their club and
     # full name...
-    if current_club_member.full_name.blank?
-      @full_name = club_member_params[:full_name]
-      current_club_member.update(full_name: @full_name)
+    if current_member.user.name.blank?
+      @name = club_member_params[:name]
+      current_member.update(user_attributes: { name: @name })
     end
     # ... and their club
-    if current_club_member.club.blank?
+    if current_member.club.blank?
       @club = Club.find(club_member_params[:club_id])
-      current_club_member.update(club: @club)
+      current_member.update(club: @club)
     end
 
     # If this is the first feedback for the day, create a new meeting
-    @current_meeting = current_club_member.club.meetings.find_by(created_at: Date.today.beginning_of_day..Date.today.end_of_day)
+    @current_meeting = current_member.club.meetings.find_by(created_at: Date.today.beginning_of_day..Date.today.end_of_day)
     if @current_meeting.nil?
-      @current_meeting = Meeting.create(club: current_club_member.club)
+      @current_meeting = Meeting.create(club: current_member.club)
     end
 
     @feedback_response = FeedbackResponse.new(feedback_response_params)
     @feedback_response.meeting = @current_meeting
-    @feedback_response.club_member = @current_club_member
+    @feedback_response.club_member = @current_member
 
     respond_to do |format|
       if @feedback_response.save
