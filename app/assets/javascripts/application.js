@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require Chart
 //= require bootstrap-dashboard/bootstrap/alert
+//= require bootstrap-dashboard/bootstrap/collapse
 //= require bootstrap-dashboard/custom/chartjs-data-api
 //= require_tree .
