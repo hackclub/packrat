@@ -1,0 +1,11 @@
+%h1 Almost there! Join a club.
+%p
+  Enter the invite code you were given. Accidentally create a leader account?
+  #{link_to 'Click here to delete this account', current_leader, method: :delete}
+  and go back to log in as a member.
+= form_tag leader_join_clubs_path do
+  .form-group
+    %label Invite Code
+    = text_field_tag :leader_invite_code, nil, class: 'form-control',
+    required: true, placeholder: 'Ex. 6B9B6E'
+  = submit_tag 'Join Club', class: 'btn btn-default'

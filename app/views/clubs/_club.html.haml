@@ -1,4 +1,4 @@
-.panel.panel-default
+.panel{class: (defined? panel_class) ? panel_class : 'panel-default'}
   .panel-heading
     %h3.panel-title= link_to club.name, club_path(club)
   .panel-body

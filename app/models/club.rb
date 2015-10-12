@@ -1,8 +1,20 @@
 class Club < ActiveRecord::Base
+  before_validation :set_leader_invite_code
+
   has_many :club_leaders
   has_many :club_members
+  has_and_belongs_to_many :leaders
   has_many :members
   has_many :meetings, dependent: :destroy
+
+  def self.generate_leader_invite_code
+    code = SecureRandom.hex(3)
+    if !Club.find_by(leader_invite_code: code).nil?
+      generate_leader_invite_code
+    else
+      code
+    end
+  end
 
   # Returns the number of feedback responses submitted at the last meeting. If
   # there was no last meeting, then returns nil.
@@ -22,5 +34,11 @@ class Club < ActiveRecord::Base
     end
 
     self.meetings.last.created_at
+  end
+
+  private
+
+  def set_leader_invite_code
+    self.leader_invite_code ||= Club.generate_leader_invite_code
   end
 end

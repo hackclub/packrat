@@ -1,4 +1,10 @@
-.row
-  - @clubs.each do |club|
-    .col-md-4
-      = render club
+- if @show_join_club_form
+  = render 'join_club_form'
+- else
+  .row
+    - @leader_clubs.each do |club|
+      .col-md-4
+        = render club, panel_class: 'panel-primary'
+    - @other_clubs.each do |club|
+      .col-md-4
+        = render club

@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
 
   # Application Routes
-  resources :clubs, only: [:index, :show]
+  resources :leaders, only: [:destroy]
+  resources :clubs, only: [:index, :show] do
+    post 'leader_join', on: :collection
+  end
   resources :meetings, only: [:show]
   resources :feedback_responses, only: [:new, :create] do
     get 'received', on: :collection
