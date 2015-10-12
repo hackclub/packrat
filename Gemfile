@@ -19,6 +19,7 @@ gem 'chart-js-rails'
 gem 'bootstrap-social-rails'
 gem 'rack-ssl-enforcer'
 gem 'rinku', require: 'rails_rinku'
+gem 'lograge'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -34,6 +35,7 @@ group :development do
 end
 
 group :production do
+  gem 'rails_12factor'
   gem 'puma'
   gem 'pg'
 end
