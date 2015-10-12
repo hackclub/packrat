@@ -30,7 +30,4 @@ if Rails.env.development?
   unless Club.find_by(name: 'Foobar High School')
     Club.create(name: 'Foobar High School')
   end
-  unless ClubLeader.find_by(email: 'foo@bar.com')
-    ClubLeader.create(email: 'foo@bar.com', password: 'password', club_id: Club.find_by(name: 'Foobar High School').id)
-  end
 end

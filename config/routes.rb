@@ -1,27 +1,24 @@
 Rails.application.routes.draw do
-  devise_for :club_members, controllers: { omniauth_callbacks: 'callbacks'}
-
-  devise_scope :club_member do
-    get 'club_members/sign_in', to: 'devise/sessions#new',
-      as: :new_club_member_session
-    delete 'club_members/sign_out', to: 'devise/sessions#destroy',
-      as: :destroy_club_member_session
+  # Sessions Routes
+  get '/sessions/:user_type/new', to: 'sessions#new'
+  get '/sessions/:user_type/initiate', to: 'sessions#initiate'
+  delete '/sessions/logout', to: 'sessions#destroy', as: 'destroy_session'
+  %w(leader member).each do |user_type|
+    get "/sessions/#{user_type}/new", as: "new_#{user_type}_session"
+    get "/sessions/#{user_type}/initiate", as: "initiate_#{user_type}_session"
   end
 
-  devise_for :club_leaders
-  get '/dashboard' => 'feedback_responses#index'
-  get '/dashboard/:id' => 'feedback_responses#show'
-  post '/feedback_responses' => 'feedback_responses#create'
-  get '/feedback_received' => 'feedback_responses#received'
+  # OmniAuth
+  get '/auth/:provider/callback', to: 'sessions#create'
 
-  resources :clubs
+  # Application Routes
+  resources :clubs, only: [:index, :show]
   resources :meetings, only: [:show]
-
-  authenticated :club_leader do
-    root to: 'clubs#index', as: :authenticate_club_leader
+  resources :feedback_responses, only: [:new, :create] do
+    get 'received', on: :collection
   end
 
-  root to: 'feedback_responses#new'
+  root to: 'pages#root'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
