@@ -57,7 +57,7 @@ class FeedbackResponsesController < ApplicationController
     # If the form included parameters for the club member (like their name or
     # club), then it'll be present here.
     def member_params
-      params.permit(:full_name, :club_id)
+      params.permit(:name, :club_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list
