@@ -11,44 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012005421) do
-
-  create_table "club_leaders", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.integer  "club_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-  end
-
-  add_index "club_leaders", ["email"], name: "index_club_leaders_on_email", unique: true
-  add_index "club_leaders", ["reset_password_token"], name: "index_club_leaders_on_reset_password_token", unique: true
-
-  create_table "club_members", force: :cascade do |t|
-    t.string   "email"
-    t.integer  "sign_in_count",      default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.integer  "club_id"
-    t.string   "full_name"
-    t.string   "phone"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "provider"
-    t.string   "uid"
-  end
-
-  add_index "club_members", ["email"], name: "index_club_members_on_email", unique: true
+ActiveRecord::Schema.define(version: 20151012025556) do
 
   create_table "clubs", force: :cascade do |t|
     t.string   "name"
@@ -61,7 +24,6 @@ ActiveRecord::Schema.define(version: 20151012005421) do
     t.integer  "rating"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.integer  "club_member_id"
     t.text     "one_thing_to_improve_on"
     t.text     "one_thing_done_well"
     t.text     "anything_else_to_share"
@@ -69,7 +31,6 @@ ActiveRecord::Schema.define(version: 20151012005421) do
     t.integer  "member_id"
   end
 
-  add_index "feedback_responses", ["club_member_id"], name: "index_feedback_responses_on_club_member_id"
   add_index "feedback_responses", ["meeting_id"], name: "index_feedback_responses_on_meeting_id"
   add_index "feedback_responses", ["member_id"], name: "index_feedback_responses_on_member_id"
 

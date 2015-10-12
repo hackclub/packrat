@@ -1,4 +1,9 @@
 class CopyClubMemberDataToUsersTable < ActiveRecord::Migration
+  # Temporary class used for migration
+  class ClubMember < ActiveRecord::Base
+    belongs_to :club
+  end
+
   def up
     ClubMember.find_each do |m|
       User.record_timestamps = false
@@ -14,6 +19,7 @@ class CopyClubMemberDataToUsersTable < ActiveRecord::Migration
       User.record_timestamps = true
     end
   end
+
   def down
     User.destroy_all
   end

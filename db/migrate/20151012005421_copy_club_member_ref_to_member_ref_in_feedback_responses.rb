@@ -1,7 +1,13 @@
 class CopyClubMemberRefToMemberRefInFeedbackResponses < ActiveRecord::Migration
+  # Temporary class used for migration
+  class ClubMember < ActiveRecord::Base
+    belongs_to :club
+  end
+
   def up
     FeedbackResponse.find_each do |resp|
-      resp.update(member: User.find_by(email: resp.club_member.email).meta)
+      member = ClubMember.find(resp.club_member_id)
+      resp.update(member: User.find_by(email: member.email).meta)
     end
   end
 
