@@ -6,8 +6,11 @@ class CreateMemberInstancesForClubMembers < ActiveRecord::Migration
 
   def up
     ClubMember.find_each do |cm|
+      u = User.find_by(email: cm.email) ||
+        User.find_by(uid: cm.uid)
+
       Member.create!(
-        user: User.find_by(email: cm.email),
+        user: u,
         club_id: cm.club_id
       )
     end
