@@ -1,15 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :club_members
-
-  devise_scope :club_member do
-    get 'club_members/sign_in', to: 'devise/sessions#new',
-      as: :new_club_member_session
-    delete 'club_members/sign_out', to: 'devise/sessions#destroy',
-      as: :destroy_club_member_session
-  end
-
-  devise_for :club_leaders
-
   # Sessions Routes
   get '/sessions/:user_type/new', to: 'sessions#new'
   get '/sessions/:user_type/initiate', to: 'sessions#initiate'
@@ -31,10 +20,6 @@ Rails.application.routes.draw do
   resources :clubs
   resources :meetings, only: [:show]
   resources :feedback_responses, only: [:new, :create]
-
-  authenticated :club_leader do
-    root to: 'clubs#index', as: :authenticate_club_leader
-  end
 
   root to: 'feedback_responses#new'
   # The priority is based upon order of creation: first created -> highest priority.
