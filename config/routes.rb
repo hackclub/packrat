@@ -8,18 +8,17 @@ Rails.application.routes.draw do
     get "/sessions/#{user_type}/initiate", as: "initiate_#{user_type}_session"
   end
 
-  # OmniAuth Routes
+  # OmniAuth
   get '/auth/:provider/callback', to: 'sessions#create'
 
   # Application Routes
-  post '/feedback_responses' => 'feedback_responses#create'
-  get '/feedback_received' => 'feedback_responses#received'
-
-  resources :clubs
+  resources :clubs, only: [:index, :show]
   resources :meetings, only: [:show]
-  resources :feedback_responses, only: [:new, :create]
+  resources :feedback_responses, only: [:new, :create] do
+    get 'received', on: :collection
+  end
 
-  root to: 'feedback_responses#new'
+  root to: 'pages#root'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

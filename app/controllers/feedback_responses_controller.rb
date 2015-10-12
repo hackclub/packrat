@@ -31,7 +31,7 @@ class FeedbackResponsesController < ApplicationController
 
     respond_to do |format|
       if @feedback_response.save
-        format.html { redirect_to feedback_received_path,
+        format.html { redirect_to received_feedback_responses_path,
             notice: 'Feedback response was successfully created.' }
       else
         format.html { render :new }
