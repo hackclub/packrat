@@ -43,6 +43,11 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: 'Logged in!'
   end
 
+  def destroy
+    reset_session
+    redirect_to root_path, notice: 'Logged out!'
+  end
+
   protected
 
   def auth_hash
