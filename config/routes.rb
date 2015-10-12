@@ -10,8 +10,15 @@ Rails.application.routes.draw do
 
   devise_for :club_leaders
 
+  # Sessions Routes
+  get '/sessions/:user_type/new', to: 'sessions#new'
+  get '/sessions/:user_type/initiate', to: 'sessions#initiate'
+  %w(leader member).each do |user_type|
+    get "/sessions/#{user_type}/new", as: "new_#{user_type}_session"
+    get "/sessions/#{user_type}/initiate", as: "initiate_#{user_type}_session"
+  end
+
   # OmniAuth Routes
-  get '/auth/:provider/new', to: 'sessions#new'
   get '/auth/:provider/callback', to: 'sessions#create'
 
   # Application Routes
@@ -22,6 +29,7 @@ Rails.application.routes.draw do
 
   resources :clubs
   resources :meetings, only: [:show]
+  resources :feedback_responses, only: [:new, :create]
 
   authenticated :club_leader do
     root to: 'clubs#index', as: :authenticate_club_leader

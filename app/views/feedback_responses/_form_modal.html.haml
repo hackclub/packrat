@@ -13,7 +13,7 @@
               %ul
                 - feedback_response.errors.full_messages.each do |msg|
                   %li= msg
-          - if current_member.user.name.blank?
+          - if current_member.user.nil? || current_member.user.name.blank?
             .form-group
               %label Full name
               = text_field_tag :name, nil, class: 'form-control',

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  belongs_to :meta, polymorphic: true
+  belongs_to :meta, polymorphic: true, dependent: :destroy
 
   def self.create_from_auth_hash(auth_hash)
     create! do |user|

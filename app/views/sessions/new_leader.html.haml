@@ -1,0 +1,13 @@
+.blur.lower-opacity
+  = render 'feedback_responses/form_modal',
+    feedback_response: FeedbackResponse.new,
+    current_member: Member.new, clubs: Club.all
+
+.modal.modal-center.show
+  .modal-dialog.modal-dialog-center.modal-sm
+    .modal-content
+      .modal-body
+        = link_to initiate_leader_session_path,
+        class: 'btn btn-block btn-social btn-lg btn-github' do
+          %i.icon.icon-github
+          Sign in with GitHub

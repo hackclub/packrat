@@ -52,13 +52,15 @@ class ApplicationController < ActionController::Base
 
   def authenticate_member!
     if !current_member
-      redirect_to root_path, alert: 'You need to sign in to access this page.'
+      redirect_to new_member_session_path,
+        alert: 'You need to sign in to access this page.'
     end
   end
 
   def authenticate_leader!
     if !current_leader
-      redirect_to root_path, alert: 'You need to sign in to access this page.'
+      redirect_to new_leader_session_path,
+        alert: 'You need to sign in to access this page.'
     end
   end
 end
