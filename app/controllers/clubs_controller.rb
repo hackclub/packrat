@@ -7,6 +7,6 @@ class ClubsController < ApplicationController
 
   def show
     @club = Club.find(params[:id])
-    @meetings = @club.meetings.order(created_at: :asc)
+    @meetings = @club.meetings.order(created_at: :desc)
   end
 end
