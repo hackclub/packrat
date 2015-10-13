@@ -1,5 +1,7 @@
 # Packrat [![Circle CI](https://circleci.com/gh/hackedu/packrat.svg?style=svg)](https://circleci.com/gh/hackedu/packrat)
 
+![This is where I would keep my feedback if I had one](http://i.imgur.com/YGQ8aNt.jpg)
+
 ## Getting Started
 
 [Register a GitHub application](https://github.com/settings/applications/new)
