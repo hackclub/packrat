@@ -16,12 +16,30 @@ class Analytics
     )
   end
 
+  def track_user_deletion
+    track(
+      {
+        user_id: user.id,
+        event: 'Delete User'
+      }
+    )
+  end
+
   def track_user_sign_in
     identify
     track(
       {
         user_id: user.id,
         event: 'Sign In User'
+      }
+    )
+  end
+
+  def track_user_sign_out
+    track(
+      {
+        user_id: user.id,
+        event: 'Sign Out User'
       }
     )
   end

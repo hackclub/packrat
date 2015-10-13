@@ -52,6 +52,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    analytics.track_user_sign_out
     reset_session
     redirect_to root_path, notice: 'Logged out!'
   end
