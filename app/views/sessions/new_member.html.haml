@@ -6,8 +6,14 @@
 .modal.modal-center.show
   .modal-dialog.modal-dialog-center.modal-sm
     .modal-content
+      .modal-header
+        %h4.modal-title Club Member Sign In
       .modal-body
         = link_to initiate_member_session_path,
         class: 'btn btn-block btn-social btn-lg btn-github' do
           %i.icon.icon-github
           Sign in with GitHub
+      .modal-body
+        Are you a club leader?
+        = link_to 'Click here to sign in as a leader instead.',
+        new_leader_session_path
