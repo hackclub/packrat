@@ -14,6 +14,7 @@ Add the following environment variables to a file called `.env`:
 
 - `GITHUB_ID` - GitHub client id
 - `GITHUB_SECRET` - GitHub client secret
+- `SEGMENT_WRITE_KEY` - Segment write key
 
 Launch Packrat:
 

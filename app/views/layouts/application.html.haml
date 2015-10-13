@@ -5,11 +5,13 @@
     %title hackEDU Labs
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = render 'layouts/analytics_head'
     = csrf_meta_tags
   - if current_leader.nil?
     %body
       = render 'layouts/flash'
       = yield
+      = render 'layouts/analytics_body'
   - else
     %body.with-top-navbar
       = render 'layouts/flash'
@@ -31,3 +33,4 @@
 
       .container.container-spacious
         = yield
+      = render 'layouts/analytics_body'

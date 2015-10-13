@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def analytics
+    @analytics ||= Analytics.new(current_user)
+  end
+
   def current_user
     begin
       @current_user ||= User.find(session[:user_id]) if session[:user_id]

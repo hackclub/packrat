@@ -31,6 +31,7 @@ class FeedbackResponsesController < ApplicationController
 
     respond_to do |format|
       if @feedback_response.save
+        analytics.track_feedback_form_submission
         format.html { redirect_to received_feedback_responses_path,
             notice: 'Feedback response was successfully created.' }
       else
