@@ -44,6 +44,15 @@ class Analytics
     )
   end
 
+  def track_feedback_form_submission
+    track(
+      {
+        user_id: user.id,
+        event: 'Submit Feedback Form'
+      }
+    )
+  end
+
   private
 
   def identify
