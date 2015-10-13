@@ -3,6 +3,8 @@ class Leader < ActiveRecord::Base
   accepts_nested_attributes_for :user
   validates_presence_of :user
 
+  has_and_belongs_to_many :clubs
+
   def self.create_from_auth_hash(auth_hash)
     create!(
       user_attributes: {

@@ -11,13 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012025556) do
+ActiveRecord::Schema.define(version: 20151012220727) do
 
   create_table "clubs", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "leader_invite_code"
   end
+
+  add_index "clubs", ["leader_invite_code"], name: "index_clubs_on_leader_invite_code"
+
+  create_table "clubs_leaders", id: false, force: :cascade do |t|
+    t.integer "leader_id"
+    t.integer "club_id"
+  end
+
+  add_index "clubs_leaders", ["club_id"], name: "index_clubs_leaders_on_club_id"
+  add_index "clubs_leaders", ["leader_id"], name: "index_clubs_leaders_on_leader_id"
 
   create_table "feedback_responses", force: :cascade do |t|
     t.integer  "meeting_id"
