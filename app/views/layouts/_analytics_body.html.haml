@@ -1,0 +1,10 @@
+:javascript
+  analytics.page();
+
+- if flash[:signed_up]
+  :javascript
+    analytics.alias("#{current_user.id}");
+
+- if user_signed_in?
+  :javascript
+    analytics.identify("#{current_user.id}");
