@@ -8,24 +8,24 @@ class Analytics
 
   def track_user_creation
     identify
-    track(event: 'Create User')
+    track(event: 'Signed Up')
   end
 
   def track_user_deletion
-    track(event: 'Delete User')
+    track(event: 'Deleted Account')
   end
 
   def track_user_sign_in
     identify
-    track(event: 'Sign In User')
+    track(event: 'Logged In')
   end
 
   def track_user_sign_out
-    track(event: 'Sign Out User')
+    track(event: 'Logged Out')
   end
 
   def track_feedback_form_submission
-    track(event: 'Submit Feedback Form')
+    track(event: 'Submitted Feedback Form')
   end
 
   private
