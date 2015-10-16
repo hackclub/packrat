@@ -30,10 +30,10 @@ class SessionsController < ApplicationController
 
       case user_type
       when :member
-        user = Member.create_from_auth_hash(auth_hash)
+        user = Member.create_from_auth_hash(auth_hash).user
         is_new_user = true
       when :leader
-        user = Leader.create_from_auth_hash(auth_hash)
+        user = Leader.create_from_auth_hash(auth_hash).user
         is_new_user = true
       else
         return render status: :bad_request,
