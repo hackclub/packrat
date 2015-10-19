@@ -1,6 +1,9 @@
 # Packrat [![Circle CI](https://circleci.com/gh/hackedu/packrat.svg?style=svg)](https://circleci.com/gh/hackedu/packrat)
 
-[![](https://i.imgur.com/rCaTfnq.png)](https://soundcloud.com/friendjonathanleung/mother-duckling-pack-rats)
+
+<a href="https://soundcloud.com/friendjonathanleung/mother-duckling-pack-rats">
+  <img src="https://i.imgur.com/rCaTfnq.png" style="width: 50%;" alt="Packrat Icon" />
+</a>
 
 ## Getting Started
 
