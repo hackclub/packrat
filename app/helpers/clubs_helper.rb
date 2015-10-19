@@ -1,4 +1,13 @@
 module ClubsHelper
+  def club_previous_attendee_count(club)
+    if club && club.meetings
+      previous_meeting = club.meetings.find_by(["created_at < ?", Date.today])
+
+      previous_meeting.blank? ? 'N/A' : previous_meeting.feedback_responses.length
+    end
+    'N/A'
+  end
+
   def club_last_attendee_count(club)
     last_meeting = club.meetings.last
 
