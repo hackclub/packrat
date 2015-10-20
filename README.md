@@ -1,6 +1,9 @@
 # Packrat [![Circle CI](https://circleci.com/gh/hackedu/packrat.svg?style=svg)](https://circleci.com/gh/hackedu/packrat)
 
-![This is where I would keep my feedback if I had one](http://i.imgur.com/YGQ8aNt.jpg)
+
+<a href="https://soundcloud.com/friendjonathanleung/mother-duckling-pack-rats">
+  <img src="https://i.imgur.com/rCaTfnq.png" style="width: 50%;" alt="Packrat Icon" />
+</a>
 
 ## Getting Started
 
