@@ -1,11 +1,8 @@
 # Packrat [![Circle CI](https://circleci.com/gh/hackedu/packrat.svg?style=svg)](https://circleci.com/gh/hackedu/packrat)
 
-
-<a href="https://soundcloud.com/friendjonathanleung/mother-duckling-pack-rats">
-  <img src="https://i.imgur.com/rCaTfnq.png" style="width: 50%;" alt="Packrat Icon" />
-</a>
-
 ## Getting Started
+
+[<img src="https://i.imgur.com/rCaTfnq.png" alt="Packrat Icon" width="275" align="right">](https://soundcloud.com/friendjonathanleung/mother-duckling-pack-rats)
 
 [Register a GitHub application](https://github.com/settings/applications/new)
 with the following fields:
