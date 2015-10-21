@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-[<img src="https://i.imgur.com/rCaTfnq.png" alt="Packrat Icon" width="275" align="right">](https://soundcloud.com/friendjonathanleung/mother-duckling-pack-rats)
+[<img src="https://i.imgur.com/rCaTfnq.png" alt="Packrat Icon" width="225" align="right">](https://soundcloud.com/friendjonathanleung/mother-duckling-pack-rats)
 
 [Register a GitHub application](https://github.com/settings/applications/new)
 with the following fields:
