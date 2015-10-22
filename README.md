@@ -24,6 +24,14 @@ You may need access to the Bootstrap theme we bought for Packrat, which is in a
 private submodule. Please create an issue if you need access and we'll work
 with you to make that happen.
 
+Set up database:
+
+    docker-compose run web rake db:schema:load
+
+Populate database with sample data (this may take a while):
+
+    docker-compose run web rake db:populate
+
 ## Deployment
 
 Set the following environment variables, in addition to the above:
