@@ -7,11 +7,16 @@ class FeedbackResponsesController < ApplicationController
   end
 
   def create
-    # If this is the first submission by the club member, record their club and
-    # full name...
+    # If this is the first submission by the club member, record their club,
+    # phone number, and full name
     if current_member.user.name.blank?
       @name = member_params[:name]
-      current_member.update(user_attributes: { name: @name })
+      current_member.user.update(name: @name)
+    end
+    # ... and phone number
+    if current_member.user.phone.blank?
+      phone = member_params[:phone]
+      current_member.user.update(phone: phone)
     end
     # ... and their club
     if current_member.club.blank?
@@ -47,7 +52,7 @@ class FeedbackResponsesController < ApplicationController
     # If the form included parameters for the club member (like their name or
     # club), then it'll be present here.
     def member_params
-      params.permit(:name, :club_id)
+      params.permit(:name, :club_id, :phone)
     end
 
     # Never trust parameters from the scary internet, only allow the white list
