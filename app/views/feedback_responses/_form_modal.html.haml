@@ -18,6 +18,11 @@
               %label Full name
               = text_field_tag :name, nil, class: 'form-control',
                 placeholder: 'Zaphod Beeblebrox', required: true
+          - if current_member.user.nil? || current_member.user.phone.blank?
+            .form-group
+              %label Phone number
+              = text_field_tag :phone, nil, class: 'form-control',
+                placeholder: '444-444-4444', required: true
           - if current_member.club.blank?
             .form-group
               %label Club
