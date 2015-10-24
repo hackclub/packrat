@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   # Application Routes
   resources :leaders, only: [:destroy]
+  resources :members, only: [:destroy]
   resources :clubs, only: [:index, :show] do
     post 'leader_join', on: :collection
   end
