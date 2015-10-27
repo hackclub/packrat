@@ -1,15 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    @user_type = params[:user_type].to_sym
-
-    case @user_type
-    when :member
-      render :new_member
-    when :leader
-      render :new_leader
-    else
-      render status: :bad_request, text: "Invalid user type: #{@user_type}"
-    end
+    render :new_user
   end
 
   def initiate

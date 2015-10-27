@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   # Sessions Routes
-  get '/sessions/:user_type/new', to: 'sessions#new'
+  get '/sessions/user/new', to: 'sessions#new', as: "new_user_session"
   get '/sessions/:user_type/initiate', to: 'sessions#initiate'
   delete '/sessions/logout', to: 'sessions#destroy', as: 'destroy_session'
   %w(leader member).each do |user_type|
-    get "/sessions/#{user_type}/new", as: "new_#{user_type}_session"
     get "/sessions/#{user_type}/initiate", as: "initiate_#{user_type}_session"
   end
 
