@@ -13,8 +13,9 @@ Rails.application.routes.draw do
 
   # Application Routes
   resources :leaders, only: [:destroy]
-  resources :clubs, only: [:index, :show] do
+  resources :clubs, only: [:index, :show, :admin] do
     post 'leader_join', on: :collection
+    get 'admin', on: :collection, as: :admin
   end
   resources :meetings, only: [:show]
   resources :feedback_responses, only: [:new, :create] do

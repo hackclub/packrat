@@ -1,10 +1,18 @@
 class ClubsController < ApplicationController
-  before_action :authenticate_leader!
+  before_action :authenticate_admin!, only: [:admin, :create]
+  before_action :authenticate_leader!, except: [:admin, :create]
 
   def index
     @leader_clubs = current_leader.clubs
     @other_clubs = Club.where.not('id in (?)', current_leader.club_ids)
     @show_join_club_form = current_leader.clubs.empty?
+  end
+
+  def admin
+    @clubs = Club.all
+  end
+
+  def create
   end
 
   def show

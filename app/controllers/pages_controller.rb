@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     end
 
     if current_admin
-      return redirect_to admin_dashboard_path
+      return redirect_to admin_clubs_path
     end
 
     redirect_to new_feedback_response_path
