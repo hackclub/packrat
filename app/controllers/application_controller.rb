@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :current_member, :current_leader
+  helper_method :current_user, :current_member, :current_leader, :current_admin
   helper_method :user_signed_in?
   helper_method :correct_user?
 
@@ -37,6 +37,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_admin
+    begin
+      current_user.meta if current_user.meta.is_a? Admin
+    rescue Exception
+      nil
+    end
+  end
+
   def user_signed_in?
     return true if current_user
   end
@@ -63,6 +71,14 @@ class ApplicationController < ActionController::Base
 
   def authenticate_leader!
     if !current_leader
+
+  def authenticate_admin!
+    unless current_admin
+      redirect_to new_admin_session_path,
+        alert: 'You need to sign in to access this page.'
+    end
+  end
+
       redirect_to new_leader_session_path,
         alert: 'You need to sign in to access this page.'
     end

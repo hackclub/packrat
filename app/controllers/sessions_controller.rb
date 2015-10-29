@@ -7,6 +7,8 @@ class SessionsController < ApplicationController
       render :new_member
     when :leader
       render :new_leader
+    when :admin
+      render :new_admin
     else
       render status: :bad_request, text: "Invalid user type: #{@user_type}"
     end
@@ -34,6 +36,9 @@ class SessionsController < ApplicationController
         is_new_user = true
       when :leader
         user = Leader.create_from_auth_hash(auth_hash).user
+        is_new_user = true
+      when :admin
+        user = Admin.create_from_auth_hash(auth_hash).user
         is_new_user = true
       else
         return render status: :bad_request,
