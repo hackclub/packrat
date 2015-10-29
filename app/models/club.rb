@@ -7,6 +7,8 @@ class Club < ActiveRecord::Base
   has_many :members
   has_many :meetings, dependent: :destroy
 
+  validates :name, presence: true, uniqueness: true
+
   def self.generate_leader_invite_code
     code = SecureRandom.hex(3)
     if !Club.find_by(leader_invite_code: code).nil?
