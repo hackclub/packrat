@@ -1,2 +1,6 @@
-%h1 Clubs#new
-%p Find me in app/views/clubs/new.html.haml
+.row
+  .col-md-4
+    = render partial: 'form', panel_class: 'panel-primary'
+  - @clubs.each do |club|
+    .col-md-4
+      = render club

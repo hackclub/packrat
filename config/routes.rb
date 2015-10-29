@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/sessions/:user_type/new', to: 'sessions#new'
   get '/sessions/:user_type/initiate', to: 'sessions#initiate'
   delete '/sessions/logout', to: 'sessions#destroy', as: 'destroy_session'
-  %w(leader member).each do |user_type|
+  %w(leader member admin).each do |user_type|
     get "/sessions/#{user_type}/new", as: "new_#{user_type}_session"
     get "/sessions/#{user_type}/initiate", as: "initiate_#{user_type}_session"
   end
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   # Application Routes
   resources :leaders, only: [:destroy]
-  resources :clubs, only: [:index, :show] do
+  resources :clubs, only: [:index, :show, :create, :new] do
     post 'leader_join', on: :collection
   end
   resources :meetings, only: [:show]

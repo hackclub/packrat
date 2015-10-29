@@ -3,6 +3,9 @@
     %h3.panel-title= link_to club.name, club_path(club)
   .panel-body
     .statcard.p-a-md
+      - if current_admin
+        %h3.statcard-number= club.leader_invite_code
+        %span.statcard-desc Invite code
       %h3.statcard-number= club_last_meeting_date(club)
       %span.statcard-desc Last meeting date
     = render 'club_statcard',

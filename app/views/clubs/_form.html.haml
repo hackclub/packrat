@@ -1,0 +1,8 @@
+.panel{class: (defined? panel_class) ? panel_class : 'panel-default'}
+  = form_for :club, url: clubs_path do |f|
+    .panel-heading
+      %h3.panel-title
+        = f.text_field :name
+    .panel-body
+      .statcard.p-a-md
+        = f.submit 'Create new club'
