@@ -1,5 +1,6 @@
 class Member < ActiveRecord::Base
   has_one :user, as: :meta, dependent: :destroy
+  has_many :feedback_responses
   accepts_nested_attributes_for :user
   validates_presence_of :user
 

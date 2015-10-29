@@ -55,3 +55,8 @@
             = f.text_area :anything_else_to_share, class: 'form-control'
         .modal-body
           = f.submit 'Submit Feedback', class: 'btn btn-default'
+        - if current_user && current_member.feedback_responses.empty?
+          .modal-body
+            Accidentally create a member account?
+            #{link_to 'Click here to delete this account', current_member, method: :delete}
+            and go back to log in as a leader.
