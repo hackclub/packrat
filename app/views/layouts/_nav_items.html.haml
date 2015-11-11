@@ -1,5 +1,5 @@
 %ul.nav.navbar-nav
-  %li.visible-lg
-    = image_tag gravatar_url(current_user), class: 'profile-image'
   - if current_leader
+    %li.visible-lg
+      = image_tag gravatar_url(current_user), class: 'profile-image'
     %li= link_to 'Logout', destroy_session_path, method: :delete
