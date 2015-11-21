@@ -1,4 +1,4 @@
-# Packrat [![Circle CI](https://circleci.com/gh/hackedu/packrat.svg?style=svg)](https://circleci.com/gh/hackedu/packrat)
+# Packrat [![Circle CI](https://circleci.com/gh/hackclub/packrat.svg?style=svg)](https://circleci.com/gh/hackclub/packrat)
 
 ## Getting Started
 
