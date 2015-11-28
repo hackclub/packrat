@@ -4,6 +4,7 @@ class FeedbackResponsesController < ApplicationController
   def new
     @feedback_response = FeedbackResponse.new
     @clubs = Club.all
+    @current_club = current_member.club
   end
 
   def create

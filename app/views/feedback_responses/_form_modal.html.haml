@@ -4,6 +4,10 @@
       = form_for feedback_response do |f|
         .modal-header
           %h4.modal-title We <span class="icon icon-heart"></span> Feedback
+          - unless club_previous_attendee_count(@current_club) == 'N/A'
+            %h5.modal-title
+              Last meeting attendees:
+              = club_previous_attendee_count(@current_club)
         .modal-body
           - if feedback_response.errors.any?
             #error_explanation
@@ -23,7 +27,7 @@
               %label Phone number
               = text_field_tag :phone, nil, class: 'form-control',
                 placeholder: '444-444-4444', required: true
-          - if current_member.club.blank?
+          - if @current_club.blank?
             .form-group
               %label Club
               = select_tag :club_id, options_from_collection_for_select(clubs,
