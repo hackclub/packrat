@@ -1,5 +1,9 @@
 # Packrat [![Circle CI](https://circleci.com/gh/hackclub/packrat.svg?style=svg)](https://circleci.com/gh/hackclub/packrat)
 
+**DEPRECATED**
+
+_**This repository has been deprecated and is no longer maintained**_
+
 ## Getting Started
 
 [<img src="https://i.imgur.com/rCaTfnq.png" alt="Packrat Icon" width="225" align="right">](https://soundcloud.com/friendjonathanleung/mother-duckling-pack-rats)
